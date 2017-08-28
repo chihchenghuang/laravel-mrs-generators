@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace\Services;
+
+use DummyNamespace\Repositories\DummyClassRepository;
+
+class DummyClassService
+{
+    protected $DummyClassRepository;
+
+    public function __construct( DummyClassRepository $DummyClassRepository )
+    {
+        $this->DummyClassRepository = $DummyClassRepository;
+    }
+
+}
