@@ -1,16 +1,16 @@
 <?php
 
-namespace DummyNamespace\Repositories;
+namespace DummyNamespace;
 
-use DummyNamespace\Models\DummyClass;
+use DummyRootNamespaceModels\DummyModel;
 
-class DummyClassRepository
+class DummyClass
 {
-    protected $DummyClass;
+    protected $DummyInstanceModel;
 
-    public function __construct( DummyClass $DummyClass )
+    public function __construct( DummyModel $DummyInstanceModel )
     {
-        $this->DummyClass = $DummyClass;
+        $this->DummyInstanceModel = $DummyInstanceModel;
     }
 
 }

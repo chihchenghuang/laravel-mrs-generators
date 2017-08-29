@@ -22,6 +22,28 @@ class ServiceMakeCommand extends GeneratorCommand
 
     protected $type = 'Service';
 
+
+    protected function buildClass($name)
+    {
+        $stub = $this->files->get($this->getStub());
+
+        return $this->replaceNamespace($stub, $name)->replaceRepository($stub, $name)->replaceClass($stub, $name);
+    }
+
+    protected function replaceRepository(&$stub, $name)
+    {
+        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $model = str_replace( 'Service','Repository',$class );
+
+        $stub = str_replace(
+            ['DummyRepository','DummyInstanceRepository'],
+            [$model,lcfirst($model)],
+            $stub
+        );
+
+        return $this;
+    }
+
     /**
      * Get the stub file for the generator.
      *

@@ -22,6 +22,28 @@ class RepositoryMakeCommand extends GeneratorCommand
 
     protected $type = 'Repository';
 
+
+    protected function buildClass($name)
+    {
+        $stub = $this->files->get($this->getStub());
+
+        return $this->replaceNamespace($stub, $name)->replaceModel($stub, $name)->replaceClass($stub, $name);
+    }
+
+    protected function replaceModel(&$stub, $name)
+    {
+        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $model = str_replace( 'Repository','',$class );
+
+        $stub = str_replace(
+            ['DummyModel','DummyInstanceModel'],
+            [$model,lcfirst($model)],
+            $stub
+        );
+
+        return $this;
+    }
+
     /**
      * Get the stub file for the generator.
      *

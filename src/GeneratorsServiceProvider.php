@@ -5,6 +5,7 @@ namespace ChihCheng\MRSGenerators;
 use Illuminate\Support\ServiceProvider;
 use ChihCheng\MRSGenerators\Commands\RepositoryMakeCommand;
 use ChihCheng\MRSGenerators\Commands\ServiceMakeCommand;
+use ChihCheng\MRSGenerators\Commands\MRSModelSetMakeCommand;
 
 class GeneratorsServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,7 @@ class GeneratorsServiceProvider extends ServiceProvider
      * @var array
      */
     protected $devCommands = [
+        'MRSModelSetMake' => 'command.mrs-model.make',
         'ServiceMake' => 'command.service.make',
         'RepositoryMake' => 'command.repository.make',
     ];
@@ -47,6 +49,18 @@ class GeneratorsServiceProvider extends ServiceProvider
         }
 
         $this->commands(array_values($commands));
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerMRSModelSetMakeCommand()
+    {
+        $this->app->singleton('command.mrs-model.make', function ($app) {
+            return new MRSModelSetMakeCommand($app['files']);
+        });
     }
 
     /**
