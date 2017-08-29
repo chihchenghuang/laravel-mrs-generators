@@ -65,9 +65,9 @@ or
 
 ### Generate classes based on the corresponding Model-Repository-Service Pattern Set:
 >This command will generate classes based on the corresponding Model-Repository-Service Pattern Set. The result will show as follows:
-app/Models/Test.php
-app/Repositories/TestRepository.php
-app/Services/TestService.php
+*app/Models/Test.php
+*app/Repositories/TestRepository.php
+*app/Services/TestService.php
 
 ```
     $ php artisan make:mrs-model Test
