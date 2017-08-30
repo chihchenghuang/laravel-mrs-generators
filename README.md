@@ -64,11 +64,63 @@ or
 ```
 
 ### Generate classes based on the corresponding Model-Repository-Service Pattern Set:
->This command will generate classes based on the corresponding Model-Repository-Service Pattern Set. The result will show as follows:
+>This command will generate classes based on the corresponding Model-Repository-Service Pattern Set.
+>It will create files like the example pattern below by using only one command:
 
 ```
     $ php artisan make:mrs-model Test
 ```
 * app/Models/Test.php
+``` php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Test extends Model
+{
+    //
+}
+
+```
 * app/Repositories/TestRepository.php
+``` php
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Test;
+
+class TestRepository
+{
+    protected $test;
+
+    public function __construct( Test $test )
+    {
+        $this->test = $test;
+    }
+
+}
+
+```
 * app/Services/TestService.php
+``` php
+<?php
+
+namespace App\Services;
+
+use App\Repositories\TestRepository;
+
+class TestService
+{
+    protected $testRepository;
+
+    public function __construct( TestRepository $testRepository )
+    {
+        $this->testRepository = $testRepository;
+    }
+
+}
+
+```
