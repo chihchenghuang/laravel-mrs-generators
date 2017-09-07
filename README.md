@@ -1,6 +1,7 @@
 # [Laravel MRS Generators](https://packagist.org/packages/chihchenghuang/laravel-mrs-generators)
 
 > This package is a experimental project inspired by [yish/generators](https://packagist.org/packages/yish/generators) which extends the core file generators based on Laravel 5
+> It can help you build classes with basic Model-Repository-Service pattern.
 
 # Installation
 

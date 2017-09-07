@@ -1,6 +1,6 @@
 {
     "name": "chihchenghuang/laravel-mrs-generators",
-    "description": "This package is a experimental project inspired by yish/generators which extends the core file generators based on Laravel 5",
+    "description": "This package is a experimental project inspired by yish/generators which extends the core file generators based on Laravel 5. It can help you build classes with basic Model-Repository-Service pattern.",
     "license": "MIT",
     "authors": [
         {
